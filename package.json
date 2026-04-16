@@ -1,0 +1,17 @@
+{
+  "name": "eduvault",
+  "version": "1.0.0",
+  "description": "EduVault - College Resource Portal",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.22.1",
+    "multer": "^1.4.5-lts.1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}

@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>EduVault | College Resource Portal</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,Arial;
+}
+
+body{
+background:#f4f6fb;
+scroll-behavior:smooth;
+}
+
+/* HEADER */
+
+header{
+background:linear-gradient(90deg,#b30000,#ff4444);
+color:white;
+padding:20px;
+position:fixed;
+width:100%;
+top:0;
+z-index:1000;
+}
+
+nav{
+display:flex;
+justify-content:center;
+gap:25px;
+margin-top:10px;
+flex-wrap:wrap;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+font-weight:600;
+}
+
+/* HERO */
+
+.hero{
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+flex-direction:column;
+text-align:center;
+background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),
+url("https://www.niet.co.in/assets/frontend/images/why-us-overview.webp");
+background-size:cover;
+color:white;
+}
+
+.hero h1{
+font-size:70px;
+}
+
+.hero p{
+margin-top:10px;
+font-size:20px;
+}
+
+.hero button{
+margin-top:30px;
+padding:15px 30px;
+border:none;
+background:red;
+color:white;
+border-radius:6px;
+cursor:pointer;
+}
+
+/* FEATURE SECTION */
+
+.features{
+padding:80px 50px;
+text-align:center;
+}
+
+.feature-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+margin-top:40px;
+}
+
+.feature{
+background:white;
+padding:30px;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+transition:.3s;
+}
+
+.feature:hover{
+transform:translateY(-8px);
+}
+
+/* SECTIONS */
+
+section{
+padding:80px 50px;
+}
+
+.title{
+text-align:center;
+margin-bottom:40px;
+font-size:30px;
+}
+
+/* GRID */
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+/* CARD */
+
+.card{
+background:white;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+overflow:hidden;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+}
+
+.card img{
+width:100%;
+height:160px;
+object-fit:cover;
+}
+
+.card-body{
+padding:15px;
+}
+
+.price{
+color:red;
+font-weight:bold;
+}
+
+/* BUTTON */
+
+.btn{
+background:red;
+color:white;
+padding:12px 20px;
+border:none;
+border-radius:5px;
+cursor:pointer;
+margin-top:20px;
+}
+
+/* POPUP */
+
+.popup{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.6);
+justify-content:center;
+align-items:center;
+z-index:2000;
+}
+
+.popup-content{
+background:white;
+padding:30px;
+border-radius:10px;
+width:400px;
+position:relative;
+}
+
+.close{
+position:absolute;
+right:15px;
+top:10px;
+font-size:25px;
+cursor:pointer;
+}
+
+form input{
+width:100%;
+padding:10px;
+margin:10px 0;
+}
+
+form button{
+background:red;
+color:white;
+border:none;
+padding:10px;
+width:100%;
+}
+
+/* BLOG */
+
+.blog{
+background:white;
+padding:20px;
+margin-bottom:20px;
+border-left:5px solid red;
+}
+
+/* CHATBOT */
+
+.chatbot{
+position:fixed;
+right:20px;
+bottom:20px;
+width:300px;
+background:white;
+border-radius:10px;
+box-shadow:0 0 10px rgba(0,0,0,0.2);
+}
+
+.chat-header{
+background:#b30000;
+color:white;
+padding:10px;
+text-align:center;
+}
+
+.chat-body{
+height:200px;
+overflow:auto;
+padding:10px;
+}
+
+.chat-input{
+display:flex;
+}
+
+.chat-input input{
+flex:1;
+padding:10px;
+border:none;
+border-top:1px solid #ccc;
+}
+
+.chat-input button{
+background:#b30000;
+color:white;
+border:none;
+padding:10px;
+}
+
+footer{
+background:#b30000;
+color:white;
+text-align:center;
+padding:20px;
+}
+
+/* NEW PDF VIEW */
+.pdf-view{
+width:100%;
+height:500px;
+border:none;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+<h2 style="text-align:center">EduVault</h2>
+<nav>
+<a href="#notes">Notes</a>
+<a href="#lectures">Lectures</a>
+<a href="#books">Books</a>
+<a href="#pyq">PYQ</a>
+<a href="#rides">Cab Share</a>
+<a href="#blogs">Blogs</a>
+</nav>
+</header>
+
+<div class="hero">
+<h1>EduVault</h1>
+<p>College Resource Management Portal</p>
+<p>Buy • Sell • Share • Learn</p>
+<button onclick="document.getElementById('notes').scrollIntoView()">Explore Resources</button>
+</div>
+
+<!-- FEATURES -->
+
+<div class="features">
+<h2>What You Can Do</h2>
+<div class="feature-grid">
+<div class="feature" onclick="document.getElementById('notes').scrollIntoView({behavior:'smooth'})" style="cursor:pointer"><h3>📚 Notes Marketplace</h3></div>
+<div class="feature" onclick="document.getElementById('lectures').scrollIntoView({behavior:'smooth'})" style="cursor:pointer"><h3>🎓 Senior Lectures</h3></div>
+<div class="feature" onclick="document.getElementById('books').scrollIntoView({behavior:'smooth'})" style="cursor:pointer"><h3>📖 Book Exchange</h3></div>
+<div class="feature" onclick="document.getElementById('rides').scrollIntoView({behavior:'smooth'})" style="cursor:pointer"><h3>🚕 Ride Share</h3></div>
+</div>
+</div>
+
+<!-- NOTES -->
+
+<section id="notes">
+<h2 class="title">Student Notes</h2>
+<div class="grid" id="notesGrid">
+
+<div class="card"><img src="https://images.unsplash.com/photo-1513258496099-48168024aec0"><div class="card-body"><h3>Computer Organization</h3><p style="color:#555;font-size:13px;margin-bottom:5px">Covers CPU design, pipelining, memory hierarchy, cache & I/O</p><p>Seller: Rahul</p><p>Contact: 9876543210</p>
+<p>CGPA: 9.8</p>
+<p class="price">₹50</p></div></div>
+
+<div class="card"><img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6"><div class="card-body"><h3>DBMS</h3><p style="color:#555;font-size:13px;margin-bottom:5px">ER models, normalization, SQL queries, transactions & indexing</p><p>Seller: Aman</p><p>Contact: 9898989898</p>
+<p>CGPA: 9.3</p>
+<p class="price">₹80</p></div></div>
+
+<div class="card"><img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c"><div class="card-body"><h3>DSA</h3><p style="color:#555;font-size:13px;margin-bottom:5px">Arrays, linked lists, trees, graphs, sorting & dynamic programming</p><p>Seller: Rohit</p><p>Contact: 9991112222</p>
+<p>CGPA: 9.1</p>
+<p class="price">₹100</p></div></div>
+
+<div class="card"><img src="https://images.unsplash.com/photo-1504639725590-34d0984388bd"><div class="card-body"><h3>Deep Learning</h3><p style="color:#555;font-size:13px;margin-bottom:5px">Neural networks, CNN, RNN, backpropagation & optimization</p><p>Seller: Neha</p><p>Contact: 8882221111</p>
+<p>CGPA: 9.8</p>
+<p class="price">₹120</p></div></div>
+
+<div class="card"><img src="https://images.unsplash.com/photo-1504639725590-34d0984388bd"><div class="card-body"><h3>Maths</h3><p style="color:#555;font-size:13px;margin-bottom:5px">Calculus, linear algebra, probability & discrete mathematics</p><p>Seller: Neha</p><p>Contact: 8882221111</p>
+<p>CGPA: 9.3</p>
+<p class="price">₹120</p></div></div>
+
+</div>
+
+<center>
+<button class="btn" onclick="openSellPopup()">Sell Notes</button>
+</center>
+
+</section>
+
+<!-- LECTURES -->
+
+<section id="lectures">
+<h2 class="title">Senior Lectures</h2>
+
+<div class="grid" id="lecturesGrid">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3">
+<div class="card-body">
+<h3>DSA Masterclass</h3>
+<p>Teacher: Arjun</p>
+<p>Contact: 9999991111</p>
+<p>Third year CGPA: 9.8</p>
+<p class="price">₹200</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3">
+<div class="card-body">
+<h3>DBMS Masterclass</h3>
+<p>Teacher: Rajesh</p>
+<p>Contact: 9999991111</p>
+<p>Third year CGPA: 9.5</p>
+<p class="price">₹200</p>
+</div>
+</div>
+
+</div>
+
+<center>
+<button class="btn" onclick="openLecturePopup()">Offer Lecture</button>
+</center>
+
+</section>
+
+<!-- OFFER LECTURE POPUP -->
+
+<div class="popup" id="lecturePopup">
+<div class="popup-content">
+<span class="close" onclick="closePopup('lecturePopup')">&times;</span>
+<h3 style="margin-bottom:15px">Offer a Lecture</h3>
+<form id="lectureForm" onsubmit="addLecture(event)">
+<input type="text" name="title" placeholder="Subject / Topic Name" required>
+<input type="text" name="teacher" placeholder="Your Name" required>
+<input type="text" name="contact" placeholder="Contact Number" required>
+<input type="text" name="cgpa" placeholder="Your CGPA" required>
+<input type="text" name="price" placeholder="Price (₹)" required>
+<button type="submit">Post Lecture</button>
+</form>
+</div>
+</div>
+
+<!-- BOOKS -->
+
+<section id="books">
+<h2 class="title">Books Marketplace</h2>
+
+<div class="grid" id="booksGrid">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1512820790803-83ca734da794">
+<div class="card-body">
+<h3>Operating System</h3>
+<p class="price">₹300</p>
+<p class="price">Contact:12345678</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1512820790803-83ca734da794">
+<div class="card-body">
+<h3>DSA</h3>
+<p class="price">₹300</p>
+<p class="price">Contact:12345678</p>
+</div>
+</div>
+
+</div>
+
+<center>
+<button class="btn" onclick="openBookPopup()">Sell Book</button>
+</center>
+
+</section>
+
+<!-- SELL BOOK POPUP -->
+
+<div class="popup" id="bookPopup">
+<div class="popup-content">
+<span class="close" onclick="closePopup('bookPopup')">&times;</span>
+<h3 style="margin-bottom:15px">Sell a Book</h3>
+<form id="bookForm" onsubmit="addBook(event)">
+<input type="text" name="title" placeholder="Book Name" required>
+<input type="text" name="price" placeholder="Price (₹)" required>
+<input type="text" name="contact" placeholder="Contact Number" required>
+<button type="submit">Post Book</button>
+</form>
+</div>
+</div>
+
+<!-- PYQ -->
+
+<section id="pyq">
+<h2 class="title">Previous Year Papers</h2>
+
+<div class="grid">
+
+<div class="card" onclick="openPaper()">
+<img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789">
+<div class="card-body">
+<h3>Maths PYQ</h3>
+</div>
+</div>
+
+<div class="card" onclick="openPaper()">
+<img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789">
+<div class="card-body">
+<h3>DSA PYQ</h3>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<!-- SELL NOTES POPUP -->
+
+<div class="popup" id="sellPopup">
+<div class="popup-content">
+<span class="close" onclick="closePopup('sellPopup')">&times;</span>
+<h3 style="margin-bottom:15px">Sell Your Notes</h3>
+<form id="sellForm" onsubmit="uploadNote(event)">
+<input type="text" name="title" placeholder="Subject Name" required>
+<input type="text" name="description" placeholder="Short description (e.g. Unit 1-5, handwritten)" required>
+<input type="text" name="seller" placeholder="Your Name" required>
+<input type="text" name="contact" placeholder="Contact Number" required>
+<input type="text" name="cgpa" placeholder="Your CGPA" required>
+<input type="text" name="price" placeholder="Price (₹)" required>
+<input type="file" name="noteFile" accept=".pdf,.doc,.docx,.txt,.png,.jpg,.jpeg" required>
+<button type="submit">Upload & Sell</button>
+</form>
+</div>
+</div>
+
+<!-- PAPER POPUP -->
+
+<div class="popup" id="paperPopup">
+<div class="popup-content">
+<span class="close" onclick="closePopup('paperPopup')">&times;</span>
+<iframe class="pdf-view" src="https://imgv2-2-f.scribdassets.com/img/document/541101302/original/55a1256e93/1?v=1"></iframe>
+</div>
+</div>
+
+<!-- RIDES -->
+
+<section id="rides">
+<h2 class="title">Cab Share</h2>
+
+<div class="grid" id="ridesGrid">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70">
+<div class="card-body">
+<h3>Greater Noida → Delhi</h3>
+<p>Driver: Aman</p>
+<p>Contact: 12345678</p>
+<p>Date: 20/April/2026</p>
+<p class="price">₹150</p>
+</div>
+</div>
+
+</div>
+
+<center>
+<button class="btn" onclick="openRidePopup()">Share Ride</button>
+</center>
+
+</section>
+
+<!-- SHARE RIDE POPUP -->
+
+<div class="popup" id="ridePopup">
+<div class="popup-content">
+<span class="close" onclick="closePopup('ridePopup')">&times;</span>
+<h3 style="margin-bottom:15px">Share a Cab Ride</h3>
+<form id="rideForm" onsubmit="addRide(event)">
+<input type="text" name="from" placeholder="From (e.g. Greater Noida)" required>
+<input type="text" name="to" placeholder="To (e.g. Delhi)" required>
+<input type="text" name="driver" placeholder="Your Name" required>
+<input type="text" name="contact" placeholder="Contact Number" required>
+<input type="text" name="date" placeholder="Date (e.g. 20/April/2026)" required>
+<input type="text" name="price" placeholder="Price (₹)" required>
+<button type="submit">Post Ride</button>
+</form>
+</div>
+</div>
+
+<!-- BLOGS -->
+
+<section id="blogs">
+<h2 class="title">Senior Blogs</h2>
+
+<div class="blog">
+<h3>Placement Tips</h3>
+
+<h3>🎯 Second Year Survival Guide</h3>
+
+<h3>The second year is one of the most crucial phases of college life. This is the time to build a strong foundation in core subjects such as Data Structures, DBMS, and Operating Systems. Focus on developing practical skills, work on meaningful projects, and start exploring your areas of interest. Avoid unnecessary distractions and use this time wisely to shape your future.</h3>
+
+<h3>💼 Placement Preparation Tips</h3>
+
+<h3>Begin your placement preparation early. Develop a strong understanding of Data Structures and Algorithms and practice coding regularly. Revise core subjects thoroughly and work on building a well-structured resume with relevant projects and internships. Consistency and discipline are key factors in securing good placement opportunities.</h3>
+
+<h3>⚡ Do's and Don'ts in College</h3>
+
+<p>✅ Do's:</p>
+
+<p>Attend classes regularly and actively participate
+Focus on skill development (technical and communication)
+Work on projects and participate in hackathons
+Maintain good relationships with seniors and faculty
+Manage your time effectively</p>
+
+<p>❌ Don'ts:</p>
+
+<p>Do not rely on last-minute studying
+Do not ignore practical knowledge and real-world skills
+Avoid excessive use of social media
+Do not miss out on internships and opportunities
+Avoid comparing yourself constantly with others</p>
+
+</div>
+
+</section>
+
+<footer>
+EduVault © 2026
+</footer>
+
+<script>
+
+function sendMessage(){
+  let inputBox = document.getElementById("userInput");
+  let chatBody = document.getElementById("chatBody");
+  let input = inputBox.value;
+  if(input.trim() === "") return;
+  chatBody.innerHTML += `<p><b>You:</b> ${input}</p>`;
+  let msg = input.toLowerCase();
+  let reply = "Please check the sections on the website.";
+  if(msg.includes("hi") || msg.includes("hello")){
+    reply = "Hello! 👋 How can I help you?";
+  } else if(msg.includes("notes")){
+    reply = "You can find notes in the Notes section.";
+  } else if(msg.includes("books")){
+    reply = "Books are available in the Books section.";
+  } else if(msg.includes("pyq")){
+    reply = "Previous Year Papers are in the PYQ section.";
+  } else if(msg.includes("ride") || msg.includes("cab")){
+    reply = "Check Cab Share section for rides.";
+  } else if(msg.includes("lecture")){
+    reply = "Lectures are available in the Lectures section.";
+  }
+  chatBody.innerHTML += `<p><b>Bot:</b> ${reply}</p>`;
+  inputBox.value = "";
+  chatBody.scrollTop = chatBody.scrollHeight;
+}
+
+function openSellPopup(){
+  document.getElementById('sellPopup').style.display='flex';
+}
+
+function openRidePopup(){
+  document.getElementById('ridePopup').style.display='flex';
+}
+
+function openLecturePopup(){
+  document.getElementById('lecturePopup').style.display='flex';
+}
+
+function openBookPopup(){
+  document.getElementById('bookPopup').style.display='flex';
+}
+
+function closePopup(id){
+  document.getElementById(id).style.display='none';
+}
+
+function openPaper(){
+  document.getElementById('paperPopup').style.display='flex';
+}
+
+async function uploadNote(e){
+  e.preventDefault();
+  var form = document.getElementById('sellForm');
+  var formData = new FormData(form);
+  try {
+    var res = await fetch('/api/upload-note', { method:'POST', body:formData });
+    if(!res.ok){ alert('Upload failed'); return; }
+    var note = await res.json();
+    addNoteCard(note);
+    form.reset();
+    closePopup('sellPopup');
+  } catch(err){ alert('Could not connect to server'); }
+}
+
+function addNoteCard(note){
+  var grid = document.getElementById('notesGrid');
+  var card = document.createElement('div');
+  card.className = 'card';
+
+  var img = document.createElement('img');
+  img.src = 'https://images.unsplash.com/photo-1513258496099-48168024aec0';
+  card.appendChild(img);
+
+  var body = document.createElement('div');
+  body.className = 'card-body';
+
+  var h3 = document.createElement('h3');
+  h3.textContent = note.title;
+  body.appendChild(h3);
+
+  if(note.description){
+    var pDesc = document.createElement('p');
+    pDesc.textContent = note.description;
+    pDesc.style.cssText = 'color:#555;font-size:13px;margin-bottom:5px;';
+    body.appendChild(pDesc);
+  }
+
+  var pSeller = document.createElement('p');
+  pSeller.textContent = 'Seller: ' + note.seller;
+  body.appendChild(pSeller);
+
+  var pContact = document.createElement('p');
+  pContact.textContent = 'Contact: ' + note.contact;
+  body.appendChild(pContact);
+
+  var pCgpa = document.createElement('p');
+  pCgpa.textContent = 'CGPA: ' + note.cgpa;
+  body.appendChild(pCgpa);
+
+  var pPrice = document.createElement('p');
+  pPrice.className = 'price';
+  pPrice.textContent = '\u20B9' + note.price;
+  body.appendChild(pPrice);
+
+  var a = document.createElement('a');
+  a.href = note.filepath;
+  a.target = '_blank';
+  a.style.cssText = 'color:red;font-weight:bold;display:block;margin-top:8px;';
+  a.textContent = '\uD83D\uDCC4 Download Notes';
+  body.appendChild(a);
+
+  card.appendChild(body);
+  grid.appendChild(card);
+}
+
+function addRideCard(ride){
+  var grid = document.getElementById('ridesGrid');
+  var card = document.createElement('div');
+  card.className = 'card';
+
+  var img = document.createElement('img');
+  img.src = 'https://images.unsplash.com/photo-1503376780353-7e6692767b70';
+  card.appendChild(img);
+
+  var body = document.createElement('div');
+  body.className = 'card-body';
+
+  var h3 = document.createElement('h3');
+  h3.textContent = ride.from + ' \u2192 ' + ride.to;
+  body.appendChild(h3);
+
+  var pDriver = document.createElement('p');
+  pDriver.textContent = 'Driver: ' + ride.driver;
+  body.appendChild(pDriver);
+
+  var pContact = document.createElement('p');
+  pContact.textContent = 'Contact: ' + ride.contact;
+  body.appendChild(pContact);
+
+  var pDate = document.createElement('p');
+  pDate.textContent = 'Date: ' + ride.date;
+  body.appendChild(pDate);
+
+  var pPrice = document.createElement('p');
+  pPrice.className = 'price';
+  pPrice.textContent = '\u20B9' + ride.price;
+  body.appendChild(pPrice);
+
+  card.appendChild(body);
+  grid.appendChild(card);
+}
+
+function addLectureCard(lecture){
+  var grid = document.getElementById('lecturesGrid');
+  var card = document.createElement('div');
+  card.className = 'card';
+
+  var img = document.createElement('img');
+  img.src = 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3';
+  card.appendChild(img);
+
+  var body = document.createElement('div');
+  body.className = 'card-body';
+
+  var h3 = document.createElement('h3');
+  h3.textContent = lecture.title;
+  body.appendChild(h3);
+
+  var pTeacher = document.createElement('p');
+  pTeacher.textContent = 'Teacher: ' + lecture.teacher;
+  body.appendChild(pTeacher);
+
+  var pContact = document.createElement('p');
+  pContact.textContent = 'Contact: ' + lecture.contact;
+  body.appendChild(pContact);
+
+  var pCgpa = document.createElement('p');
+  pCgpa.textContent = 'CGPA: ' + lecture.cgpa;
+  body.appendChild(pCgpa);
+
+  var pPrice = document.createElement('p');
+  pPrice.className = 'price';
+  pPrice.textContent = '\u20B9' + lecture.price;
+  body.appendChild(pPrice);
+
+  card.appendChild(body);
+  grid.appendChild(card);
+}
+
+function addBookCard(book){
+  var grid = document.getElementById('booksGrid');
+  var card = document.createElement('div');
+  card.className = 'card';
+
+  var img = document.createElement('img');
+  img.src = 'https://images.unsplash.com/photo-1512820790803-83ca734da794';
+  card.appendChild(img);
+
+  var body = document.createElement('div');
+  body.className = 'card-body';
+
+  var h3 = document.createElement('h3');
+  h3.textContent = book.title;
+  body.appendChild(h3);
+
+  var pPrice = document.createElement('p');
+  pPrice.className = 'price';
+  pPrice.textContent = '\u20B9' + book.price;
+  body.appendChild(pPrice);
+
+  var pContact = document.createElement('p');
+  pContact.className = 'price';
+  pContact.textContent = 'Contact: ' + book.contact;
+  body.appendChild(pContact);
+
+  card.appendChild(body);
+  grid.appendChild(card);
+}
+
+window.addEventListener('load', async function(){
+  try {
+    var res = await fetch('/api/notes');
+    var notes = await res.json();
+    notes.forEach(addNoteCard);
+  } catch(e){ }
+  try {
+    var res2 = await fetch('/api/rides');
+    var rides = await res2.json();
+    rides.forEach(addRideCard);
+  } catch(e){ }
+  try {
+    var res3 = await fetch('/api/lectures');
+    var lectures = await res3.json();
+    lectures.forEach(addLectureCard);
+  } catch(e){ }
+  try {
+    var res4 = await fetch('/api/books');
+    var books = await res4.json();
+    books.forEach(addBookCard);
+  } catch(e){ }
+});
+
+async function addRide(e){
+  e.preventDefault();
+  var form = document.getElementById('rideForm');
+  var data = Object.fromEntries(new FormData(form));
+  try {
+    var res = await fetch('/api/add-ride', {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(data)
+    });
+    if(!res.ok){ alert('Failed to post ride'); return; }
+    var ride = await res.json();
+    addRideCard(ride);
+    form.reset();
+    closePopup('ridePopup');
+  } catch(err){ alert('Could not connect to server'); }
+}
+
+async function addLecture(e){
+  e.preventDefault();
+  var form = document.getElementById('lectureForm');
+  var data = Object.fromEntries(new FormData(form));
+  try {
+    var res = await fetch('/api/add-lecture', {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(data)
+    });
+    if(!res.ok){ alert('Failed to post lecture'); return; }
+    var lecture = await res.json();
+    addLectureCard(lecture);
+    form.reset();
+    closePopup('lecturePopup');
+  } catch(err){ alert('Could not connect to server'); }
+}
+
+async function addBook(e){
+  e.preventDefault();
+  var form = document.getElementById('bookForm');
+  var data = Object.fromEntries(new FormData(form));
+  try {
+    var res = await fetch('/api/add-book', {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(data)
+    });
+    if(!res.ok){ alert('Failed to post book'); return; }
+    var book = await res.json();
+    addBookCard(book);
+    form.reset();
+    closePopup('bookPopup');
+  } catch(err){ alert('Could not connect to server'); }
+}
+
+</script>
+
+</body>
+</html>
